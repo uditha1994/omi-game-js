@@ -83,3 +83,118 @@ body {
 .mode-btn:hover:not(.active) {
     background-color: #3a5a8f;
 }
+
+.game-board {
+    flex: 1;
+    display: grid;
+    grid-template-areas:
+        "north north north"
+        "west center east"
+        "south south south"
+    ;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    position: relative;
+}
+
+.player-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.player-area:hover:not(.player-south) {
+    transform: scale(1.05);
+}
+
+.player-north {
+    grid-area: north;
+    flex-direction: column-reverse;
+}
+
+.player-east {
+    grid-area: east;
+    flex-direction: row;
+}
+
+.player-west {
+    grid-area: west;
+    flex-direction: row-reverse;
+}
+
+.player-south {
+    grid-area: south;
+}
+
+.player-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    min-height: 120px;
+    margin: 5px;
+    font-weight: 600;
+}
+
+.player-name {
+    color: var(--light-color)
+}
+
+.player-points {
+    color: var(--secondary-color);
+    margin-left: 10px;
+}
+
+.card-slot {
+    width: var(--card-width);
+    height: var(--card-height);
+    position: relative;
+}
+
+.center-area {
+    grid-area: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.played-cards {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.game-info {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.trum-display,
+.bid-display,
+.trick-count {
+    margin: 5px 0;
+    font-size: 1.1rem;
+}
+
+.hand-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    height: var(--card-height);
+    perspective: 1000px;
+}
